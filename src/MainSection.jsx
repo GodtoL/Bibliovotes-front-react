@@ -1,10 +1,20 @@
 import BookList from "./BookList";
+import { useState } from "react";
+
 export default function MainSection() {
+    const [isFormVisible, setFormVisible] = useState(false)
+    
+    const toggleFormVisibility = () =>{
+        setFormVisible(!isFormVisible);
+    }
+
     return (
         <>
             <main>
-                <h1>Recomendaciones de libros</h1>
-                <form>
+                <button className="create-button" onClick={toggleFormVisibility}> 
+                    {isFormVisible ? "Ocultar" : "Agregar recomendación"}
+                </button>
+                {isFormVisible && (<form className="book-create-form">
                     <CreateBookLabel propName="Titulo" />
                     <CreateBookLabel propName="Autor" />
                     <CreateBookLabel propName="Descripción breve" />
@@ -20,7 +30,7 @@ export default function MainSection() {
                         <option value="misterio">Misterio</option>
                     </select>
                     <button type="submit">Crear Recomendación</button>
-                </form>
+                </form>)}
                 <div>
                     <BookList></BookList>
                 </div>

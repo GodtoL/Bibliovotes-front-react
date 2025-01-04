@@ -221,4 +221,9 @@ main{
       height: auto;
       padding: 10px;
   }
+
+  .size-6{
+    width: 2px;
+    height: 2px;
+  }
 }
