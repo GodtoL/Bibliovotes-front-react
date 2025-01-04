@@ -1,3 +1,4 @@
+import BookList from "./BookList";
 export default function MainSection() {
     return (
         <>
@@ -20,6 +21,9 @@ export default function MainSection() {
                     </select>
                     <button type="submit">Crear Recomendación</button>
                 </form>
+                <div>
+                    <BookList></BookList>
+                </div>
             </main>
         </>
     );
@@ -33,3 +37,4 @@ function CreateBookLabel({ propName }) {
         </>
     );
 }
+
