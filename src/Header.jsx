@@ -3,7 +3,7 @@ export default function Header(){
         <>
             <header>
                 <div className="head-menu">
-                    <img src="static/images/pngwing.com.png" alt="logo BiblioVotes"></img>
+                <img src="../public/Bibliovoteslogo.png" alt="logo BiblioVotes" />
                     <input type="text" placeholder="Buscar libro..."></input>
                     <UserBtn btnName="Inicio"/>
                     <UserBtn btnName="Categorias"/>

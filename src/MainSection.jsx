@@ -31,7 +31,7 @@ export default function MainSection() {
                     </select>
                     <button type="submit">Crear Recomendación</button>
                 </form>)}
-                <div>
+                <div >
                     <BookList></BookList>
                 </div>
             </main>
