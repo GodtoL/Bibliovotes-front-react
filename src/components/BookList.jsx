@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { books } from "./bd";
-import { tags } from "./tags";
+import { books } from "../bd";
+import { tags } from "../tags";
 
 export default function BookList() {
   const [selectedTags, setSelectedTags] = useState([]);
@@ -71,8 +71,6 @@ export default function BookList() {
             )}
           </div>
       </div>
-
-    
   );
 }
 
