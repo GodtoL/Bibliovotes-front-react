@@ -227,7 +227,73 @@ main{
 .book-create-form button:hover {
   background-color: #3a5725; /* Color más oscuro al pasar el mouse */
 }
+.book-tags{
+  list-style: none;
+  display: flex;
+  padding: 0;
+  gap: 1rem;
+  margin: 0;
+}
 
+.book-description{
+  background-color: #FDF5E6; /* Beige claro */
+  border: 1px solid #E0E0E0; /* Gris claro */
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments-list li {
+  background-color: #FDF5E6; /* Beige claro */
+  border: 1px solid #E0E0E0; /* Gris claro */
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: square;
+}
+
+
+.comments-list li{
+  background-color: #F5F5DC;
+}
+
+.comments-amount{
+  display: flex;
+  gap: 1rem;
+}
+.votes-amount{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  padding: 0.5rem;
+}
+
+
+.amount-comments{
+  font-weight: bold;
+}
+
+.vote-button {
+  background-color: #556B2F;
+  color: #FFFFFF;
+  border: none;
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.vote-button:hover {
+  background-color: #6B8E23; /* Verde oliva */
+  transform: scale(1.05); /* Ligeramente más grande */
+}
+.comment-input-form{
+  display: flex;
+
+}
 @media (max-width: 768px) {
   main {
       width: 90%;

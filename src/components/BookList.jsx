@@ -60,7 +60,6 @@ export default function BookList() {
                       <p>{book.comments?.length || 0}</p>
                     </div>
                     <ul className="tags-list">
-                      <li>🏷️</li>
                       <CreateTags book={book} />
                     </ul>
                   </li>
@@ -74,9 +73,10 @@ export default function BookList() {
   );
 }
 
-function CreateTags({ book }) {
+export function CreateTags({ book }) {
   return (
     <>
+      <li>🏷️</li>
       {book.tags.map((tag, index) => (
         <li key={index}>{tag.name}</li>
       ))}

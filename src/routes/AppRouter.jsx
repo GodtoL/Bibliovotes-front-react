@@ -1,6 +1,8 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import MainSection from '../components/MainSection'
+import BookInfo from '../components/BookInfo'
+
 
 export const AppRouter = () => {
   const navigate = useNavigate();  
@@ -16,7 +18,7 @@ export const AppRouter = () => {
         path="/home"
         element={<MainSection />}
       />
-      <Route path="/book/" element={<h1>Chau mundo</h1>} />
+      <Route path="/book" element={<BookInfo />} />
     </Routes>
   );
 };
