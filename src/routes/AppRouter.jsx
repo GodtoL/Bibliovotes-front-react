@@ -9,7 +9,7 @@ export const AppRouter = () => {
   const buttonRef = useRef(null);  
 
   const handleClick = () => {
-    navigate("/login");  
+    navigate("/book");  
   };
 
   return (
@@ -18,7 +18,7 @@ export const AppRouter = () => {
         path="/home"
         element={<MainSection />}
       />
-      <Route path="/book" element={<BookInfo />} />
+      <Route path="/book/:id" element={<BookInfo />} />
     </Routes>
   );
 };

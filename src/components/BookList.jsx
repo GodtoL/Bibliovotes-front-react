@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { books } from "../bd";
 import { tags } from "../tags";
+import { Link } from 'react-router-dom';
 
 export default function BookList() {
   const [selectedTags, setSelectedTags] = useState([]);
@@ -51,7 +52,9 @@ export default function BookList() {
               <ul className="link-list">
                 {filteredBooks.map((book) => (
                   <li key={book.id}>
-                    <a href="#">{book.title}</a>
+                    <nav>
+                      <Link to={`/book/${book.id}`}>{book.title}</Link>
+                    </nav>
                     <p className="short-description">{book.shortDescription}</p>
                     <div className="votes">
                       <p>Votos:</p>
