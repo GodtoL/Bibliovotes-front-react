@@ -15,7 +15,7 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route
-        path="/home"
+        path="/"
         element={<MainSection />}
       />
       <Route path="/book/:id" element={<BookInfo />} />

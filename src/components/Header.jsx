@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Header(){
     return (
         <>
@@ -19,5 +21,5 @@ export default function Header(){
 }
 
 function UserBtn({btnName}){
-    return <li><a className="user-btn" href=""> {btnName}</a></li>
+    return <li><Link className="user-btn" to={"/"}> {btnName}</Link></li>
 }
