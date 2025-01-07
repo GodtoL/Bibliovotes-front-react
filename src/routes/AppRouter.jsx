@@ -3,14 +3,7 @@ import { useRef } from "react";
 import MainSection from '../components/MainSection'
 import BookInfo from '../components/BookInfo'
 
-
 export const AppRouter = () => {
-  const navigate = useNavigate();  
-  const buttonRef = useRef(null);  
-
-  const handleClick = () => {
-    navigate("/book");  
-  };
 
   return (
     <Routes>
