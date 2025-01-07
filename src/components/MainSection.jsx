@@ -1,13 +1,26 @@
 import BookList from "./BookList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MainSection() {
+    const [tags, setTags] = useState([]);
     const [isFormVisible, setFormVisible] = useState(false)
     
+    const fetchTags = async () => {
+    try{
+        const response = await fetch("https://bibliovotes-production.up.railway.app/api/tag")
+        const data = await response.json();
+        setTags(data);
+    } catch (error) {
+        console.error("Error en el fetch de tag ", error)
+    }}
+
     const toggleFormVisibility = () =>{
         setFormVisible(!isFormVisible);
     }
 
+    useEffect(() => {
+        fetchTags()
+    }, [])
     return (
         <>
             <main>
@@ -25,9 +38,10 @@ export default function MainSection() {
                         <option value="" disabled selected>
                             Selecciona un tag
                         </option>
-                        <option value="ficcion">Ficción</option>
-                        <option value="no-ficcion">No Ficción</option>
-                        <option value="misterio">Misterio</option>
+                        {tags.map((tag) => {
+                            <option > {tag.name} </option>
+                        }
+                        )}
                     </select>
                     <button type="submit">Crear Recomendación</button>
                 </form>)}

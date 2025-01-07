@@ -11,7 +11,6 @@ export default function BookList() {
     try {
         const response = await fetch("https://bibliovotes-production.up.railway.app/api/book")
         const data = await response.json();
-        console.log("la data es ", data)
         setBooks(data)
     } catch(Error){
       console.error("Error al intentar el fetch", Error)
@@ -67,7 +66,6 @@ export default function BookList() {
             {
             filteredBooks.length > 0 ? (
               <ul className="link-list">
-                {console.log("los books ", books)}
                 {filteredBooks.map((book) => (
                   <li key={book.id}>
                     <nav>
