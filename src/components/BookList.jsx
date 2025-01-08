@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from "react";
-
+import { useBooks } from './BooksContext';
 import { tags } from "../tags";
 import { Link } from 'react-router-dom';
 
 export default function BookList() {
   const [selectedTags, setSelectedTags] = useState([]);
-  const [books, setBooks] = useState([]);
 
-  const fetchBooks = async () => {
-    try {
-        const response = await fetch("https://bibliovotes-production.up.railway.app/api/book")
-        const data = await response.json();
-        setBooks(data)
-    } catch(Error){
-      console.error("Error al intentar el fetch", Error)
-    }
-  }
-
-  useEffect(()=> {
-    fetchBooks()
-  }, [])
-
+  const { books } = useBooks();
   const toggleTag = (tag) => {
     setSelectedTags((prevSelectedTags) =>
       prevSelectedTags.includes(tag)

@@ -1,9 +1,11 @@
 import BookList from "./BookList";
 import PostForm from "./PostForm";
 import { useEffect, useState } from "react";
+import { useBooks } from './BooksContext';
 
 
 export default function MainSection() {
+    const { books } = useBooks();
     const [tags, setTags] = useState([]);
     const [isFormVisible, setFormVisible] = useState(false)
     

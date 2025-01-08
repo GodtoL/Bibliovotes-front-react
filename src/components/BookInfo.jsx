@@ -1,10 +1,11 @@
-import {books} from '../bd';
 import {CreateTags} from './BookList';
 import { useParams } from 'react-router-dom';
+import { useBooks } from './BooksContext';
 
 export default function BookInfo () {
     const { id } = useParams();
     console.log("id es ",id);
+    const { books } = useBooks();
     const book = books.find(book => book.id === parseInt(id, 10));
     console.log(book);
     const commentsBook = book.comments;
