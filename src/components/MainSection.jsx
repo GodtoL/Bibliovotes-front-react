@@ -1,5 +1,7 @@
 import BookList from "./BookList";
+import PostForm from "./PostForm";
 import { useEffect, useState } from "react";
+
 
 export default function MainSection() {
     const [tags, setTags] = useState([]);
@@ -21,30 +23,13 @@ export default function MainSection() {
     useEffect(() => {
         fetchTags()
     }, [])
+
     return (
         <>
             <main>
-                <button className="create-button" onClick={toggleFormVisibility}> 
-                    {isFormVisible ? "Ocultar" : "Agregar recomendación"}
-                </button>
-                {isFormVisible && (<form className="book-create-form">
-                    <CreateBookLabel propName="Titulo" />
-                    <CreateBookLabel propName="Autor" />
-                    <CreateBookLabel propName="Descripción breve" />
-                    <label>Sinopsis:</label>
-                    <textarea required></textarea>
-                    <label>Etiqueta:</label>
-                    <select required>
-                        <option value="" disabled selected>
-                            Selecciona un tag
-                        </option>
-                        {tags.map((tag) => {
-                            <option > {tag.name} </option>
-                        }
-                        )}
-                    </select>
-                    <button type="submit">Crear Recomendación</button>
-                </form>)}
+                <div>
+                    <PostForm tags={tags}></PostForm>
+                </div>
                 <div >
                     <BookList></BookList>
                 </div>
@@ -53,12 +38,5 @@ export default function MainSection() {
     );
 }
 
-function CreateBookLabel({ propName }) {
-    return (
-        <>
-            <label>{propName}:</label>
-            <input type="text" name={propName.toLowerCase().replace(/\s/g, "-")} required />
-        </>
-    );
-}
+
 
