@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function BookInfo() {
 
-
   const { id } = useParams();
   const { books } = useBooks();
   const book = books.find((book) => book.id === parseInt(id, 10));
@@ -25,7 +24,7 @@ export default function BookInfo() {
     setComment((prevComment) => ({
       ...prevComment,
       [name]: value,
-      bookId: book.id, // Asociar el comentario al libro actual
+      bookId: book.id, 
     }));
   };
 
@@ -53,6 +52,25 @@ export default function BookInfo() {
       console.error("Ocurrió algo en el servidor.");
     }
   };
+  const handleVote = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        `https://bibliovotes-production.up.railway.app/api/book/${id}`,
+        {
+          method: "PUT",
+
+        }
+      );
+      if (response.ok) {
+        console.log("Se voto correctamente");
+      } else {
+        console.log("Error al votar ");
+      }
+    } catch (error) {
+      console.error("Ocurrió algo en el servidor.");
+    }
+  };
 
   return (
     <main>
@@ -63,7 +81,7 @@ export default function BookInfo() {
         <CreateTags book={book} />
       </ul>
       <div className="votes-amount">
-        <button className="vote-button">Votar</button>
+        <button onClick={handleVote} className="vote-button">Votar</button>
         <p className="amount-votes">{book.votesCount} votos</p>
       </div>
       <div id="comments-amount" className="comments-amount">
